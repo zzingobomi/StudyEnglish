@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-// 회사에서 만든 프로젝트 입니다.
-
 public class MainActivity extends AppCompatActivity
 {
     ///
@@ -68,7 +66,7 @@ public class MainActivity extends AppCompatActivity
     ///
     private void SettingKorEngPageAudio()
     {
-        // 인덱스 0일 때 오류? Audio 버튼 호출 안됨 순서 바꾸면..?
+        // Audio 버튼 호출 안됨 순서 바꾸면..?
         int curIndex = getRandomIndex();
         Log.d("TEST", String.valueOf(curIndex));
 
@@ -80,7 +78,7 @@ public class MainActivity extends AppCompatActivity
 
     int getRandomIndex()
     {
-        return mRandom.nextInt(mDbManager.getTotalItemCount());
+        return mRandom.nextInt(mDbManager.getTotalItemCount() - 1) + 1;
     }
 
 

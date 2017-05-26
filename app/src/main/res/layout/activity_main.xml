@@ -37,6 +37,13 @@
         android:text="10page"/>
 
     <Button
+        android:id="@+id/nextbutton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:onClick="ClickNextButton" />
+
+    <Button
         android:id="@+id/audiobutton"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -48,12 +55,5 @@
         android:background="@drawable/speaker"
         android:onClick="ClickAudioButton"
         android:text="" />
-
-    <Button
-        android:id="@+id/nextbutton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:onClick="ClickNextButton" />
 
 </RelativeLayout>
