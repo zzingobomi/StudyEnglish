@@ -19,4 +19,5 @@ public class GlobalData
     public static final int iEngSentenceColumn      = 2;
     public static final int iPageColumn             = 3;
     public static final int iAudioColumn            = 4;
+
 }

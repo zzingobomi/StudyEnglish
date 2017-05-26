@@ -30,6 +30,16 @@ public class MainActivity extends AppCompatActivity
     TextView                mPageText;
     Button                  mAudioButton;
 
+    ///
+    /// 현재 상태 모습
+    ///
+    enum STATE
+    {
+        KOR_STATE,
+        ENG_STATE
+    };
+    STATE                   mCurState = STATE.KOR_STATE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -46,7 +56,9 @@ public class MainActivity extends AppCompatActivity
         // DB 에서 정보 가져오기 (가장 첫번째)
         DBConnect();
 
+        // 처음 화면 보여주기
         SettingKorEngPageAudio();
+        SetCurrentState( STATE.KOR_STATE );
     }
 
     private void DBConnect()
@@ -66,7 +78,6 @@ public class MainActivity extends AppCompatActivity
     ///
     private void SettingKorEngPageAudio()
     {
-        // Audio 버튼 호출 안됨 순서 바꾸면..?
         int curIndex = getRandomIndex();
         Log.d("TEST", String.valueOf(curIndex));
 
@@ -76,15 +87,49 @@ public class MainActivity extends AppCompatActivity
         mAudioButton.setText( mDbManager.getAudio(curIndex) );
     }
 
+    void SetCurrentState(STATE curState)
+    {
+        if( curState == STATE.KOR_STATE )
+        {
+            mKorSentenceText.setVisibility(View.VISIBLE);
+
+            mEngSentenceText.setVisibility(View.GONE);
+            mPageText.setVisibility(View.GONE);
+            mAudioButton.setVisibility(View.GONE);
+        }
+        else
+        {
+            mKorSentenceText.setVisibility(View.GONE);
+
+            mEngSentenceText.setVisibility(View.VISIBLE);
+            mPageText.setVisibility(View.VISIBLE);
+            mAudioButton.setVisibility(View.VISIBLE);
+        }
+    }
+
     int getRandomIndex()
     {
         return mRandom.nextInt(mDbManager.getTotalItemCount() - 1) + 1;
     }
 
-
+    ///
+    /// 화면을 눌렀을 때 호출되는 함수
+    ///
     public void ClickNextButton(View v)
     {
         Log.d("TEST", "ClickNextButton");
+
+        if( mCurState == STATE.KOR_STATE )
+        {
+            SetCurrentState( STATE.ENG_STATE );
+            mCurState = STATE.ENG_STATE;
+        }
+        else
+        {
+            SettingKorEngPageAudio();
+            SetCurrentState( STATE.KOR_STATE );
+            mCurState = STATE.KOR_STATE;
+        }
     }
 
     public void ClickAudioButton(View v)
