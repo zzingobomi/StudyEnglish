@@ -1,5 +1,6 @@
 package com.zzingobomi.studyenglish;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -8,8 +9,6 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.Random;
-
-// Happy Home 에서도 한번 올려보겠습니다.
 
 public class MainActivity extends AppCompatActivity
 {
@@ -40,6 +39,12 @@ public class MainActivity extends AppCompatActivity
         ENG_STATE
     };
     STATE                   mCurState = STATE.KOR_STATE;
+    int                     mCurIndex = 0;
+
+    ///
+    /// Media Player
+    ///
+    MediaPlayer             mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -80,12 +85,13 @@ public class MainActivity extends AppCompatActivity
     private void SettingKorEngPageAudio()
     {
         int curIndex = getRandomIndex();
+        mCurIndex = curIndex;
         Log.d("TEST", String.valueOf(curIndex));
 
         mKorSentenceText.setText( mDbManager.getKorSentence(curIndex) );
         mEngSentenceText.setText( mDbManager.getEngSentence(curIndex) );
         mPageText.setText( mDbManager.getPage(curIndex) );
-        mAudioButton.setText( mDbManager.getAudio(curIndex) );
+        //mAudioButton.setText( mDbManager.getAudio(curIndex) );
     }
 
     void SetCurrentState(STATE curState)
@@ -118,7 +124,7 @@ public class MainActivity extends AppCompatActivity
     ///
     public void ClickNextButton(View v)
     {
-        Log.d("TEST", "ClickNextButton");
+        //Log.d("TEST", "ClickNextButton");
 
         if( mCurState == STATE.KOR_STATE )
         {
@@ -135,6 +141,10 @@ public class MainActivity extends AppCompatActivity
 
     public void ClickAudioButton(View v)
     {
-        Log.d("TEST", "ClickAudioButton");
+        // Log.d("TEST", "ClickAudioButton");
+
+        int resID = getResources().getIdentifier( mDbManager.getAudio(mCurIndex), "raw", this.getPackageName() );
+        mMediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
+        mMediaPlayer.start();
     }
 }

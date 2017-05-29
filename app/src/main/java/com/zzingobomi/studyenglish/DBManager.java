@@ -76,6 +76,9 @@ public class DBManager
         result.moveToFirst();
         totalCount = result.getInt(0);
 
+        // 사운드 테스트
+        totalCount = 5;
+
         return totalCount;
     }
 
