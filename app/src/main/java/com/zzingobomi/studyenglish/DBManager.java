@@ -103,14 +103,14 @@ public class DBManager
         return engSentence;
     }
 
-    public int getPage( int iIndex )
+    public String getPage( int iIndex )
     {
-        int page = 0;
+        String page = "";
 
         String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
-        page = result.getInt(GlobalData.iPageColumn);
+        page = result.getString(GlobalData.iPageColumn);
 
         return page;
     }

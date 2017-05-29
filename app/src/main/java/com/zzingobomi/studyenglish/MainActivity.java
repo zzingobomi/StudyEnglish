@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity
 
         mKorSentenceText.setText( mDbManager.getKorSentence(curIndex) );
         mEngSentenceText.setText( mDbManager.getEngSentence(curIndex) );
-        mPageText.setText( String.valueOf(mDbManager.getPage(curIndex)) );
+        mPageText.setText( mDbManager.getPage(curIndex) );
         mAudioButton.setText( mDbManager.getAudio(curIndex) );
     }
 
