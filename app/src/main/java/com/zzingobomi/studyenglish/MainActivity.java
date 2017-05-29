@@ -142,6 +142,9 @@ public class MainActivity extends AppCompatActivity
     public void ClickAudioButton(View v)
     {
         // Log.d("TEST", "ClickAudioButton");
+        if( mDbManager.getAudio(mCurIndex).length() <= 0 ) {
+            return;
+        }
 
         int resID = getResources().getIdentifier( mDbManager.getAudio(mCurIndex), "raw", this.getPackageName() );
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
