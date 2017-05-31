@@ -23,7 +23,15 @@
             android:screenOrientation="landscape" />
 
         <activity
-            android:name=".Word1004"
+            android:name=".MovieCompActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".IrregularVerbActivity"
+            android:screenOrientation="landscape" />
+
+        <activity
+            android:name=".Word1004Activity"
             android:screenOrientation="landscape" />
     </application>
 

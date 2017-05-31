@@ -7,16 +7,14 @@ import android.support.v7.app.AppCompatActivity;
  * Created by JONGCHAN on 2017-05-31.
  */
 
-public class Word1004 extends AppCompatActivity
+public class MovieCompActivity extends AppCompatActivity
 {
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_word1004);
+        setContentView(R.layout.activity_moviecomp);
 
         //mRandom = new Random();
 
