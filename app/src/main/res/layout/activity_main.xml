@@ -9,47 +9,51 @@
 
     <Button
         android:id="@+id/midangelbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:onClick="ClickStudySelect"
+        android:background="@drawable/button01"
+        android:layout_weight="1"
         android:text="미드천사" />
 
     <Button
         android:id="@+id/moviecompbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:onClick="ClickStudySelect"
+        android:background="@drawable/button01"
+        android:layout_weight="1"
         android:text="영화영작" />
 
     <Button
         android:id="@+id/irregularverbbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:onClick="ClickStudySelect"
-        android:text="불규칙동사" />
+        android:background="@drawable/button01"
+        android:layout_weight="1"
+        android:text="불규칙 동사" />
 
     <Button
         android:id="@+id/word1004button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
         android:layout_marginTop="0dp"
         android:layout_marginBottom="0dp"
         android:layout_gravity="center"
-        android:layout_weight="1"
         android:onClick="ClickStudySelect"
-        android:text="1004어휘" />
+        android:background="@drawable/button01"
+        android:layout_weight="1"
+        android:text="1004 어휘" />
 
 
 </LinearLayout>
