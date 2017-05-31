@@ -1,62 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.zzingobomi.studyenglish.MainActivity">
 
-    <TextView
-        android:id="@+id/korsentence"
+    <Button
+        android:id="@+id/midangelbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:text="이것은 한국말 입니다." />
-
-    <TextView
-        android:id="@+id/engsentence"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:text="This is Eng Sentence" />
-
-    <TextView
-        android:id="@+id/page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:text="10page"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="ClickStudySelect"
+        android:text="미드천사" />
 
     <Button
-        android:id="@+id/nextbutton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/transparent"
-        android:onClick="ClickNextButton" />
+        android:id="@+id/moviecompbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="ClickStudySelect"
+        android:text="영화영작" />
 
     <Button
-        android:id="@+id/audiobutton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_alignBottom="@+id/page"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/speaker"
-        android:onClick="ClickAudioButton"
-        android:text="" />
+        android:id="@+id/irregularverbbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="ClickStudySelect"
+        android:text="불규칙동사" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/word1004button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:onClick="ClickStudySelect"
+        android:text="1004어휘" />
+
+
+</LinearLayout>

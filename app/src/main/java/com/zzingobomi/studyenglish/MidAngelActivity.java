@@ -1,6 +1,5 @@
 package com.zzingobomi.studyenglish;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,18 +10,12 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class MainActivity extends AppCompatActivity
+/**
+ * Created by JONGCHAN on 2017-05-31.
+ */
+
+public class MidAngelActivity extends AppCompatActivity
 {
-    ///
-    /// Main UI 관련
-    ///
-    Button      mBtnMidAngel;               // 미드 천사
-    Button      mBtnMovieComp;              // 영화 영작
-    Button      mBtnIrregularVerb;          // 불규칙 동사
-    Button      mBtnWord1004;               // 1004 어휘
-
-
-    /*
     ///
     /// DB 관련
     ///
@@ -56,86 +49,28 @@ public class MainActivity extends AppCompatActivity
     /// Media Player
     ///
     MediaPlayer             mMediaPlayer;
-    */
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_midangel);
 
-        mBtnMidAngel        = (Button)findViewById(R.id.midangelbutton);
-        mBtnMovieComp       = (Button)findViewById(R.id.moviecompbutton);
-        mBtnIrregularVerb   = (Button)findViewById(R.id.irregularverbbutton);
-        mBtnWord1004        = (Button)findViewById(R.id.word1004button);
+        mRandom = new Random();
 
-
-
-
-        //mRandom = new Random();
-
-        //mKorSentenceText = (TextView)findViewById(R.id.korsentence);
-        //mEngSentenceText = (TextView)findViewById(R.id.engsentence);
-        //mPageText = (TextView)findViewById(R.id.page);
-        //mAudioButton = (Button)findViewById(R.id.audiobutton);
+        mKorSentenceText = (TextView)findViewById(R.id.korsentence);
+        mEngSentenceText = (TextView)findViewById(R.id.engsentence);
+        mPageText = (TextView)findViewById(R.id.page);
+        mAudioButton = (Button)findViewById(R.id.audiobutton);
 
         // DB 에서 정보 가져오기 (가장 첫번째)
-        //DBConnect();
+        DBConnect();
 
         // 처음 화면 보여주기
-        //SettingKorEngPageAudio();
-        //SetCurrentState( STATE.KOR_STATE );
+        SettingKorEngPageAudio();
+        SetCurrentState( MidAngelActivity.STATE.KOR_STATE );
     }
 
-    ///
-    /// 랜덤으로 인덱스를 추출한 뒤 해당 문장들을 셋팅한다.
-    ///
-    void ClickStudySelect(View v)
-    {
-        switch (v.getId())
-        {
-            case R.id.midangelbutton:
-                openMidAngelActivity();
-                break;
-
-            case R.id.moviecompbutton:
-                openMovieCompActivity();
-                break;
-
-            case R.id.irregularverbbutton:
-                openIrregularVerbActivity();
-                break;
-
-            case R.id.word1004button:
-                openWord1004Activity();
-                break;
-        }
-    }
-
-    private void openMidAngelActivity()
-    {
-        Intent i = new Intent(this, MidAngelActivity.class);
-        startActivity(i);
-    }
-
-    private void openMovieCompActivity()
-    {
-        //Intent i = new Intent(this, MidAngelActivity.class);
-        //startActivity(i);
-    }
-
-    private void openIrregularVerbActivity()
-    {
-        //Intent i = new Intent(this, MidAngelActivity.class);
-        //startActivity(i);
-    }
-
-    private void openWord1004Activity()
-    {
-        Intent i = new Intent(this, Word1004.class);
-        startActivity(i);
-    }
-
-    /*
     private void DBConnect()
     {
         mDbManager = new DBManager(getApplicationContext());
@@ -219,5 +154,4 @@ public class MainActivity extends AppCompatActivity
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
         mMediaPlayer.start();
     }
-    */
 }
