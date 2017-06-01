@@ -20,7 +20,6 @@ import java.io.InputStream;
 public class DBManager
 {
     private final String    DB_NAME             = "studyenglish.db";
-    private final String    DB_TABLE_NAME       = "midangel";
     private final int       DB_VERSION          = 1;
 
     private Context         mContext            = null;
@@ -124,7 +123,7 @@ public class DBManager
     {
         String audio = "";
 
-        String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
+        String querySQL = "SELECT * FROM " + GlobalData.szMidAngelTableName + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
         audio = result.getString(GlobalData.iMidAngel_AudioColumn);
@@ -133,11 +132,70 @@ public class DBManager
     }
 
 
+
     /*******************************************************************************************
      *  영화 영작 관련 함수
      *******************************************************************************************/
 
+    public int getTotalItemCountMovieComp()
+    {
+        int totalCount = 0;
 
+        String querySQL = "SELECT count(*) FROM " + GlobalData.szMovieCompTableName;
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        totalCount = result.getInt(0);
+
+        return totalCount;
+    }
+
+    public String getKorSentenceMovieComp( int iIndex )
+    {
+        String korSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szMovieCompTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        korSentence = result.getString(GlobalData.iMovieComp_KorSentenceColumn);
+
+        return korSentence;
+    }
+
+    public String getEngSentenceMovieComp( int iIndex )
+    {
+        String engSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szMovieCompTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        engSentence = result.getString(GlobalData.iMovieComp_EngSentenceColumn);
+
+        return engSentence;
+    }
+
+    public String getPageMovieComp( int iIndex )
+    {
+        String page = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szMovieCompTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        page = result.getString(GlobalData.iMovieComp_PageColumn);
+
+        return page;
+    }
+
+    public String getAudioMovieComp( int iIndex )
+    {
+        String audio = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szMovieCompTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        audio = result.getString(GlobalData.iMovieComp_AudioColumn);
+
+        return audio;
+    }
 
 
 
@@ -145,8 +203,41 @@ public class DBManager
      *  불규칙 동사 관련 함수
      *******************************************************************************************/
 
+    public int getTotalItemCountIrregularVerb()
+    {
+        int totalCount = 0;
 
+        String querySQL = "SELECT count(*) FROM " + GlobalData.szIrregularVerbTableName;
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        totalCount = result.getInt(0);
 
+        return totalCount;
+    }
+
+    public String getKorIrregularVerb( int iIndex )
+    {
+        String korSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szIrregularVerbTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        korSentence = result.getString(GlobalData.iIrregularVerb_KorVerbColumn);
+
+        return korSentence;
+    }
+
+    public String getEngIrregularVerb( int iIndex )
+    {
+        String engSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szIrregularVerbTableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        engSentence = result.getString(GlobalData.iIrregularVerb_EngBerbColumn);
+
+        return engSentence;
+    }
 
 
 

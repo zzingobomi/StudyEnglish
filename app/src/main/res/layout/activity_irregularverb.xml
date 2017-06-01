@@ -1,16 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/testword1004"
+        android:id="@+id/korverb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:text= "불규칙 동사 액티비티 입니다." />
+        android:text="이것은 한국말 입니다." />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/engverb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:text="This is Eng Sentence" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/transparent"
+        android:onClick="ClickNextButton" />
+
+</RelativeLayout>
