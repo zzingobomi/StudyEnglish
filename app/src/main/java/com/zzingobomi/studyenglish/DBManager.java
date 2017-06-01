@@ -27,6 +27,7 @@ public class DBManager
     private OpenHelper      mOpener             = null;
     private SQLiteDatabase  mDbController       = null;
 
+
     private class OpenHelper extends SQLiteOpenHelper
     {
         public OpenHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version)
@@ -67,11 +68,15 @@ public class DBManager
         mDbController = mOpener.getReadableDatabase();
     }
 
-    public int getTotalItemCount()
+    /*******************************************************************************************
+     *  미드 천사 관련 함수
+     *******************************************************************************************/
+
+    public int getTotalItemCountMidAngel()
     {
         int totalCount = 0;
 
-        String querySQL = "SELECT count(*) FROM " + DB_TABLE_NAME;
+        String querySQL = "SELECT count(*) FROM " + GlobalData.szMidAngelTableName;
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
         totalCount = result.getInt(0);
@@ -79,52 +84,122 @@ public class DBManager
         return totalCount;
     }
 
-    public String getKorSentence( int iIndex )
+    public String getKorSentenceMidAngel( int iIndex )
     {
         String korSentence = "";
 
-        String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
+        String querySQL = "SELECT * FROM " + GlobalData.szMidAngelTableName + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
-        korSentence = result.getString(GlobalData.iKorSentenceColumn);
+        korSentence = result.getString(GlobalData.iMidAngel_KorSentenceColumn);
 
         return korSentence;
     }
 
-    public String getEngSentence( int iIndex )
+    public String getEngSentenceMidAngel( int iIndex )
     {
         String engSentence = "";
 
-        String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
+        String querySQL = "SELECT * FROM " + GlobalData.szMidAngelTableName + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
-        engSentence = result.getString(GlobalData.iEngSentenceColumn);
+        engSentence = result.getString(GlobalData.iMidAngel_EngSentenceColumn);
 
         return engSentence;
     }
 
-    public String getPage( int iIndex )
+    public String getPageMidAngel( int iIndex )
     {
         String page = "";
 
-        String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
+        String querySQL = "SELECT * FROM " + GlobalData.szMidAngelTableName + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
-        page = result.getString(GlobalData.iPageColumn);
+        page = result.getString(GlobalData.iMidAngel_PageColumn);
 
         return page;
     }
 
-    public String getAudio( int iIndex )
+    public String getAudioMidAngel( int iIndex )
     {
         String audio = "";
 
         String querySQL = "SELECT * FROM " + DB_TABLE_NAME + " WHERE autoindex='" + iIndex + "'";
         Cursor result = mDbController.rawQuery(querySQL, null);
         result.moveToFirst();
-        audio = result.getString(GlobalData.iAudioColumn);
+        audio = result.getString(GlobalData.iMidAngel_AudioColumn);
 
         return audio;
+    }
+
+
+    /*******************************************************************************************
+     *  영화 영작 관련 함수
+     *******************************************************************************************/
+
+
+
+
+
+    /*******************************************************************************************
+     *  불규칙 동사 관련 함수
+     *******************************************************************************************/
+
+
+
+
+
+
+    /*******************************************************************************************
+     *  1004 어휘 관련 함수
+     *******************************************************************************************/
+
+    public int getTotalItemCountWord1004()
+    {
+        int totalCount = 0;
+
+        String querySQL = "SELECT count(*) FROM " + GlobalData.szWord1004TableName;
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        totalCount = result.getInt(0);
+
+        return totalCount;
+    }
+
+    public String getKorWord1004( int iIndex )
+    {
+        String korSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szWord1004TableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        korSentence = result.getString(GlobalData.iWord1004_KorWordColumn);
+
+        return korSentence;
+    }
+
+    public String getEngWord1004( int iIndex )
+    {
+        String engSentence = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szWord1004TableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        engSentence = result.getString(GlobalData.iWord1004_EngWordColumn);
+
+        return engSentence;
+    }
+
+    public String getWordKindWord1004( int iIndex )
+    {
+        String page = "";
+
+        String querySQL = "SELECT * FROM " + GlobalData.szWord1004TableName + " WHERE autoindex='" + iIndex + "'";
+        Cursor result = mDbController.rawQuery(querySQL, null);
+        result.moveToFirst();
+        page = result.getString(GlobalData.iWord1004_WordKindColumn);
+
+        return page;
     }
 
     /*

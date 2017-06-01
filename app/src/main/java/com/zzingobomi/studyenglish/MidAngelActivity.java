@@ -63,7 +63,7 @@ public class MidAngelActivity extends AppCompatActivity
         mPageText = (TextView)findViewById(R.id.page);
         mAudioButton = (Button)findViewById(R.id.audiobutton);
 
-        // DB 에서 정보 가져오기 (가장 첫번째)
+        // DB 에서 정보 가져오기
         DBConnect();
 
         // 처음 화면 보여주기
@@ -92,9 +92,9 @@ public class MidAngelActivity extends AppCompatActivity
         mCurIndex = curIndex;
         Log.d("TEST", String.valueOf(curIndex));
 
-        mKorSentenceText.setText( mDbManager.getKorSentence(curIndex) );
-        mEngSentenceText.setText( mDbManager.getEngSentence(curIndex) );
-        mPageText.setText( mDbManager.getPage(curIndex) );
+        mKorSentenceText.setText( mDbManager.getKorSentenceMidAngel(curIndex) );
+        mEngSentenceText.setText( mDbManager.getEngSentenceMidAngel(curIndex) );
+        mPageText.setText( mDbManager.getPageMidAngel(curIndex) );
         //mAudioButton.setText( mDbManager.getAudio(curIndex) );
     }
 
@@ -120,7 +120,7 @@ public class MidAngelActivity extends AppCompatActivity
 
     int getRandomIndex()
     {
-        return mRandom.nextInt(mDbManager.getTotalItemCount() - 1) + 1;
+        return mRandom.nextInt(mDbManager.getTotalItemCountMidAngel() - 1) + 1;
     }
 
     ///
@@ -146,11 +146,11 @@ public class MidAngelActivity extends AppCompatActivity
     public void ClickAudioButton(View v)
     {
         // Log.d("TEST", "ClickAudioButton");
-        if( mDbManager.getAudio(mCurIndex).length() <= 0 ) {
+        if( mDbManager.getAudioMidAngel(mCurIndex).length() <= 0 ) {
             return;
         }
 
-        int resID = getResources().getIdentifier( mDbManager.getAudio(mCurIndex), "raw", this.getPackageName() );
+        int resID = getResources().getIdentifier( mDbManager.getAudioMidAngel(mCurIndex), "raw", this.getPackageName() );
         mMediaPlayer = MediaPlayer.create(getApplicationContext(), resID);
         mMediaPlayer.start();
     }
